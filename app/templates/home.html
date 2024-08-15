@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../static/css/home.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p>Welcome to arbitrage</p>
+    <button id="arbButton">Get Arbitrage Opportunities</button>
+    <div id="result" style="border: solid 2px black">result</div>
+    <script>
+        $(document).ready(function(){
+            $('#arbButton').click(function() {
+                $.ajax({
+                    url: 'http://127.0.0.1:5000/arbitrage',
+                    type: 'GET',
+                    success: function(response) {
+                        $('#result').html('Arbitrage Opportunities ' + JSON.stringify(response));
+                    },
+                    error: function(err) {
+                        ('#result').html('Error' + error.statusText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

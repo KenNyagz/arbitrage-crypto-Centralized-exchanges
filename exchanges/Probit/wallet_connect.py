@@ -1,0 +1,1 @@
+#https://docs-en.probit.com/docs/authorization-1 ~ consult docs
