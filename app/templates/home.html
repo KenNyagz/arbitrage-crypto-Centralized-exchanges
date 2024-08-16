@@ -7,9 +7,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <p>Welcome to arbitrage</p>
+    <p id="WelcomeBanner">Welcome to arbitrage</p>
     <button id="arbButton">Get Arbitrage Opportunities</button>
     <div id="result" style="border: solid 2px black">result</div>
+    <div id="pagination"></div>
+
     <script>
         $(document).ready(function(){
             $('#arbButton').click(function() {
@@ -17,7 +19,44 @@
                     url: 'http://127.0.0.1:5000/arbitrage',
                     type: 'GET',
                     success: function(response) {
-                        $('#result').html('Arbitrage Opportunities ' + JSON.stringify(response));
+                        let lines = response.split('\n');
+                        let linesPerPage = 100;
+                        let currentPage = 1;
+                        let totalPages = Math.ceil(lines.length / linesPerPage);
+
+                        function renderPage(page) {
+                            $('#result').html(''); //Clear result div
+                            let start = (page - 1) * linesPerPage;
+                            let end = start + linesPerPage;
+                            let pageLines = lines.slice(start, end);
+
+                            pageLines.forEach(line => {  //pageLines.forEach(function(line)
+                                $('#result').append('<div>' + line + '</div>');
+                            });
+                            // updating pagination controls
+                            $('#pagination').html('');
+                            if (page > 1){
+                                $('#pagination').append('<button id="prevPage">Previous</button>');
+                            }
+                            if (page < totalPages){
+                                $('#pagination').append('<button id="nextPage">Next</button>');
+                            }
+                        }
+
+                        renderPage(currentPage); // Render first page
+
+                        $('#pagination').on('click', '#prePage', function() {
+                            if (currentPage > 1) {
+                                currentPage--;
+                                renderPage(currentPage);
+                            }
+                        });
+                        $('#pagination').on('click', '#nexPage', function(){
+                            if (currentPage < totalPages) {
+                                currentPage++;
+                                renderPage(currentPage);
+                            }
+                        });
                     },
                     error: function(err) {
                         ('#result').html('Error' + error.statusText);
