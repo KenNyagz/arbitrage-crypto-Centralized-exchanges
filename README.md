@@ -13,4 +13,5 @@ It collects data from various cryptocurrency exchanges via their API endpoints, 
 
 #### API endpoints:
 `[GET] /home`
+
 `[GET] /arbitrage`
