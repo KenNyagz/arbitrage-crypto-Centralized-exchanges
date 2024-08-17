@@ -38,8 +38,9 @@ https://romanruins.tech (Hosting not yet complete)
 
 - Compulsory request parameters - None
 
+
 **`[GET] /home`**
-Serves the home page
+- Serves the home page
 
 **Request**
 - Method: `GET`
