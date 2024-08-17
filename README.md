@@ -15,7 +15,7 @@ Navigate to the project directory
 cd arbitrage-crpto-Centralized-exchanges
 ```
 Install dependencies
-```pip install -r requiremnts.txt` ``
+```pip install -r requiremnts.txt```
 
 Start the server
 ```
