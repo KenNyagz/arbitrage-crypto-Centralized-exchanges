@@ -46,4 +46,26 @@ https://romanruins.tech (Hosting not yet complete)
 - Method: `GET`
 - Endpoint: `/home`
 
--  No compulsory parameters
+- Compulsory parameters - None
+
+
+**`[POST] /`**  
+ Serves the login/sign-up page
+
+**Request**
+- Method: `GET`
+- Endpoint: `/`
+
+- Compulsory parameters - None
+
+
+**`[GET] /verify`**  
+ Serves the home page
+
+**Request**
+- Method: `POST`
+- Endpoint: `/verify_login`
+
+- Compulsory parameters - 'username' and 'password'
+
+<!--Fun fact: you can force a line break by adding two spaces at the end of the line you intend to not be conjoined with the next -->
