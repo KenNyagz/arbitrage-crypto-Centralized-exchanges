@@ -61,8 +61,8 @@ def arbitrage():
     #else:
     #    content = 'Could not find data'
     '''
-    with open('ticker_arbs/2024-08-16_00.10.03', 'r') as f:
-        content = f.read()
+    with open('ticker_arbs/2024-08-17_10.33.35', 'r') as f:  # For testing
+        content = f.read()                                   # purposes only
     
     return content
 

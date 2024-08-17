@@ -5,64 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="../static/css/home.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
 </head>
 <body>
-    <p id="WelcomeBanner">Welcome to arbitrage</p>
-    <button id="arbButton">Get Arbitrage Opportunities</button>
-    <div id="result" style="border: solid 2px black">result</div>
+    <div class="welcomeBannerclass"><h1 id="welcomeBanner">Welcome to Arbitrage Cove</h1></div>
+    <p class="arbButtonClass"><button id="arbButton">Get Arbitrage Opportunities</button></p>
+    <div id="result"></div>
     <div id="pagination"></div>
 
     <script>
         $(document).ready(function(){
+            let data = [];
+            const itemsPerPage = 100;
+            let currentPage = 1;
+
             $('#arbButton').click(function() {
                 $.ajax({
                     url: 'http://127.0.0.1:5000/arbitrage',
                     type: 'GET',
                     success: function(response) {
-                        let lines = response.split('\n');
-                        let linesPerPage = 100;
-                        let currentPage = 1;
-                        let totalPages = Math.ceil(lines.length / linesPerPage);
-
-                        function renderPage(page) {
-                            $('#result').html(''); //Clear result div
-                            let start = (page - 1) * linesPerPage;
-                            let end = start + linesPerPage;
-                            let pageLines = lines.slice(start, end);
-
-                            pageLines.forEach(line => {  //pageLines.forEach(function(line)
-                                $('#result').append('<div>' + line + '</div>');
-                            });
-                            // updating pagination controls
-                            $('#pagination').html('');
-                            if (page > 1){
-                                $('#pagination').append('<button id="prevPage">Previous</button>');
-                            }
-                            if (page < totalPages){
-                                $('#pagination').append('<button id="nextPage">Next</button>');
-                            }
-                        }
-
-                        renderPage(currentPage); // Render first page
-
-                        $('#pagination').on('click', '#prePage', function() {
-                            if (currentPage > 1) {
-                                currentPage--;
-                                renderPage(currentPage);
-                            }
-                        });
-                        $('#pagination').on('click', '#nexPage', function(){
-                            if (currentPage < totalPages) {
-                                currentPage++;
-                                renderPage(currentPage);
-                            }
-                        });
+                        data = response.split('\n');
+                        currentPage = 1;
+                        renderPage(currentPage);
+                        renderPagination();
                     },
                     error: function(err) {
                         ('#result').html('Error' + error.statusText);
                     }
                 });
             });
+
+            function renderPage(page) {
+                $('#result').empty();
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const pageItems = data.slice(start, end);
+
+                    // Create child elements for each item
+                pageItems.forEach(item => {
+                    const element = $('<div class="row"></div>').text(item).css({
+                        padding: '5px',
+                        borderBottom: '1px solid #ccc'
+                    })
+                    $('#result').append(element);
+                });
+            }
+
+            function renderPagination() {
+                $('#pagination').empty();
+                const totalPages = Math.ceil(data.length / itemsPerPage);
+
+                const prevButton = $('<button>Previous</button>').click(function() {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        renderPage(currentPage);
+                    }
+                });
+                $('#pagination').append(prevButton);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageButton = $('<button></button>').text(i).click(function() {
+                        currentPage = i;
+                        renderPage(currentPage);
+                    });
+                    if (i === currentPage) {
+                        pageButton.addClass('active');
+                    }
+                    $('#pagination').append(pageButton);
+                }
+
+                const nextButton = $('<button>Next</button>').click(function() {
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        renderPage(currentPage);
+                    }
+                });
+                $('#pagination').append(nextButton);
+           }
         });
     </script>
 </body>

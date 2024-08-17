@@ -64,8 +64,7 @@ def get_arbtg(exchange1, exchange2, exchange1_tickers, exchange2_tickers):
         if ticker in exchange2_tickers:
             common_tickers[ticker] = exchange1_tickers[ticker]
 
-    result = f"\nCommon tickers in {exchange1} and {exchange2} are: {len(common_tickers)}\n"
-    #print(result)
+    result = f"Common tickers in {exchange1} and {exchange2} are: {len(common_tickers)}\n"
 
     percentage_diffs = {f"percentage_to_{exchange1}": 0.0, f"percentage_to_{exchange2}": 0.0}
     for ticker in common_tickers:
@@ -102,15 +101,15 @@ def get_arbtg(exchange1, exchange2, exchange1_tickers, exchange2_tickers):
                 # #result += f"{ticker} : difference is {percentage_diffs[f'percentage_to_{exchange2}']}% favouring {exchange1}\n" ## Don't uncomment unless testing
                 result += f"{ticker} : difference is {percentage_diffs[f'percentage_to_{exchange1}']}% favouring {exchange2}\n" #Constructing return value
 
-    if result.count('\n') <= 2:
-        result += '  --  No arbitrage above 3% --'
+    if result.count('\n') <= 1:
+        result += '  --  No arbitrage above 3% --\n'
     return result
 
 
 def display_arbitrage_opportunities(exchange1, exchange2, exchange1_tickers, exchange2_tickers, timestamp):
     '''Displays percentage price diffs btn two exchanges'''
     with open(f'ticker_arbs/{timestamp}', 'a') as f:   # for storing arbitrage data in files, for persistence and future ref
-        print('\n', exchange1,'and', exchange2, ' \n ', get_arbtg(exchange1, exchange2, exchange1_tickers, exchange2_tickers), file=f)
+        print(exchange1,'and', exchange2, ' \n ', get_arbtg(exchange1, exchange2, exchange1_tickers, exchange2_tickers), file=f)
         ##  result = subprocess.run(['python3', 'arbitrage.py'], stdout=f, stderr=subprocess.STDOUT)
 
     print('\n', exchange1,'and', exchange2, ' \n ', get_arbtg(exchange1, exchange2, exchange1_tickers, exchange2_tickers)) # To stdout for display
@@ -122,10 +121,10 @@ def main():
                 bybit_tickers, bitget_tickers, bitrue_tickers, kraken_tickers, kucoin_tickers,
                 mexc_tickers, poloniex_tickers, xt_tickers, ascendex_tickers, bitmart_tickers, coinex_tickers,
                 digifinex_tickers, hotcoin_tickers, lbank_tickers, probit_tickers, whitebit_tickers,
-                ]
+              ]
     exchanges = ['Binance', 'Huobi', 'OKX', 'GateIO', 'BingX', 'Bybit', 'Bitget', 'Bitrue', 'Kraken', 'Kucoin', 'Mexc',
                  'Poloniex', 'XT', 'AscendEX', 'Bitmart', 'CoinEx', 'Digifinex', 'Hotcoin', 'Lbank', 'Probit', 'Whitebit'
-                 ]
+                ]
 
     now = datetime.now().strftime('%Y-%m-%d_%H.%M.%S')  # for precise file creation, storage files are named from timestamp
     exchange_combinations = combinations(zip(exchanges, tickers), 2)
