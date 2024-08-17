@@ -7,4 +7,10 @@ It collects data from various cryptocurrency exchanges via their API endpoints, 
 ### Set up
 `pip install -r requiremnts.txt`
 
-### API endpoints:
+### API
+#### Base Url
+
+
+#### API endpoints:
+`[GET] /home`
+`[GET] /arbitrage`
