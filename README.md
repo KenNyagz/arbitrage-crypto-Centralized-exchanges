@@ -15,7 +15,9 @@ Navigate to the project directory
 cd arbitrage-crpto-Centralized-exchanges
 ```
 Install dependencies
-```pip install -r requiremnts.txt```
+```
+pip install -r requiremnts.txt
+```
 
 Start the server
 ```
@@ -27,8 +29,20 @@ python3 app/routes.py
 https://romanruins.tech (Hosting not yet complete)
 
 #### API endpoints:
-`[GET] /home` : Serves the home/landing page
--  No compulsory parameters
+**`[GET] /arbitrage`**
+- Retrieves the arbitrage opportunities between various centralized exchanges
 
-`[GET] /arbitrage` : Retrieves the arbitrage opportunities between various centralized exchanges
+*Request*
+- Method: `GET`
+- Endpoint: `/arbitage`
+
 - Compulsory request parameters - None
+
+**`[GET] /home`**
+Serves the home page
+
+**Request**
+- Method: `GET`
+- Endpoint: `/home`
+
+-  No compulsory parameters
