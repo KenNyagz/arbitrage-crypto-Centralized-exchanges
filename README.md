@@ -12,6 +12,6 @@ It collects data from various cryptocurrency exchanges via their API endpoints, 
 
 
 #### API endpoints:
-`[GET] /home`
+`[GET] /home` : Serves the home/landing page
 
-`[GET] /arbitrage`
+`[GET] /arbitrage` : Retrieves the arbitrage opportunities between various centralized exchanges
