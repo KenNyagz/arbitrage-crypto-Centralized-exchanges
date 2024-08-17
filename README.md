@@ -29,8 +29,8 @@ python3 app/routes.py
 https://romanruins.tech (Hosting not yet complete)
 
 #### API endpoints:
-**`[GET] /arbitrage`**
-- Retrieves the arbitrage opportunities between various centralized exchanges
+**`[GET] /arbitrage`**  
+ Retrieves the arbitrage opportunities between various centralized exchanges
 
 *Request*
 - Method: `GET`
@@ -39,8 +39,8 @@ https://romanruins.tech (Hosting not yet complete)
 - Compulsory request parameters - None
 
 
-**`[GET] /home`**
-- Serves the home page
+**`[GET] /home`**  
+ Serves the home page
 
 **Request**
 - Method: `GET`
