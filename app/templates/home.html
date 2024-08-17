@@ -27,7 +27,6 @@
                         data = response.split('\n');
                         currentPage = 1;
                         renderPage(currentPage);
-                        renderPagination();
                     },
                     error: function(err) {
                         ('#result').html('Error' + error.statusText);
@@ -49,6 +48,7 @@
                     })
                     $('#result').append(element);
                 });
+                renderPagination();
             }
 
             function renderPagination() {

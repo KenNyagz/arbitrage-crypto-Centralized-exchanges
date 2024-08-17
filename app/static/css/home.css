@@ -5,6 +5,7 @@ body{
     background-color: #f0f0f0;
     color: #322;
     background-image: url(../images/investing-in-cryptocurrencies-2.jpg);
+    backdrop-filter: blur(20px);
 }
 .active {
     font-weight: bold;
@@ -48,60 +49,22 @@ button {
     cursor: pointer;
     font-size: 1rem;
     margin: 1px;
-    margin-top: 2px;
+    margin-top: 15px;
 }
 button:hover {
     background-color: #0056b3;
 }
 
 .row{
-    background-color: #cbdf20;
-    background: linear-gradient(to bottom, #12b2bde3, #4980b6);
+    /* background: linear-gradient(to bottom, #12b2bde3, #4980b6); */
+    background: linear-gradient(to bottom, rgba(18, 178, 189, 0.8), rgba(73, 128, 182, 0.8));
     margin: 1px;
     font-size: large;
+    font-weight: bold;
     line-height: 2;
     letter-spacing: 0.2px;
     word-spacing: 1px;
     font-family: serif;
     font-variant: small-caps;
+    color: #0c0907;
 }
-
-/*
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #333;
-    padding-bottom: 5px;
-}
-.section-title {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #555;
-}
-.opportunity {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-left: 5px solid #007BFF;
-    border-radius: 5px;
-}
-.highlight {
-    color: #007BFF;
-    font-weight: bold;
-}*/
