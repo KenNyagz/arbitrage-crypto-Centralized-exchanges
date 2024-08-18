@@ -29,8 +29,7 @@ Start the server
 python3 app/routes.py
 ```
 
-To get out of the virtual environment, run this command:
-`deactivate`
+To get out of the virtual environment, run this command: `deactivate`
 
 ### API
 #### Base Url
