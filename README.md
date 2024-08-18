@@ -14,6 +14,11 @@ Navigate to the project directory
 ```bash
 cd arbitrage-crpto-Centralized-exchanges
 ```
+Create virtual and run environment
+```
+python3 -m venv Virt
+source Virt/bin/activate
+```
 Install dependencies
 ```
 pip install -r requiremnts.txt
