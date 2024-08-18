@@ -14,7 +14,7 @@ Navigate to the project directory
 ```bash
 cd arbitrage-crpto-Centralized-exchanges
 ```
-Create virtual and run environment
+Create and run virtual environment
 ```
 python3 -m venv Virt
 source Virt/bin/activate
@@ -28,6 +28,9 @@ Start the server
 ```
 python3 app/routes.py
 ```
+
+To get out of the virtual environment, run this command:
+`deactivate`
 
 ### API
 #### Base Url
