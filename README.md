@@ -29,8 +29,6 @@ Start the server
 python3 app/routes.py
 ```
 
-To get out of the virtual environment, run this command: `deactivate`
-
 ### API
 #### Base Url
 https://romanruins.tech (Hosting not yet complete)
@@ -75,4 +73,5 @@ https://romanruins.tech (Hosting not yet complete)
 
 - Compulsory parameters - 'username' and 'password'
 
+To get out of the virtual environment, run this command: `deactivate`
 <!--Fun fact: you can force a line break by adding two spaces at the end of the line you intend to not be conjoined with the next -->
