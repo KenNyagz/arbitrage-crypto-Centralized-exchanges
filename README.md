@@ -14,7 +14,7 @@ Navigate to the project directory
 ```bash
 cd arbitrage-crpto-Centralized-exchanges
 ```
-Create and run virtual environment
+Create and run a virtual environment
 ```
 python3 -m venv Virt
 source Virt/bin/activate
@@ -34,7 +34,7 @@ python3 app/routes.py
 https://romanruins.tech (Hosting not yet complete)
 
 #### API endpoints:
-**`[GET] /arbitrage`**  
+1. **`[GET] /arbitrage`**  
  Retrieves the arbitrage opportunities between various centralized exchanges
 
 *Request*
@@ -43,8 +43,10 @@ https://romanruins.tech (Hosting not yet complete)
 
 - Compulsory request parameters - None
 
+- *This is the main API endpoint and the only endpoint that can be used outside a browser*
 
-**`[GET] /home`**  
+
+2. **`[GET] /home`**  
  Serves the home/welcome page
 
 **Request**
@@ -54,8 +56,8 @@ https://romanruins.tech (Hosting not yet complete)
 - Compulsory request parameters - None
 
 
-**`[GET] /`**  
- Serves the login page, which will redirect one to sign-up page if they do not have an account
+3. **`[GET] /`**  
+ Serves the login page, which will redirect one to the sign-up page if they do not have an account
 
 **Request**
 - Method: `GET`
@@ -64,8 +66,8 @@ https://romanruins.tech (Hosting not yet complete)
 - Compulsory request parameters - None
 
 
-**`[POST] /verify_login`**  
- Verifies the user credentials submitted by the login form in the login page
+4. **`[POST] /verify_login`**  
+ Verifies the user credentials submitted in the login form from the login page
 
 **Request**
 - Method: `POST`
@@ -73,7 +75,7 @@ https://romanruins.tech (Hosting not yet complete)
 
 - Compulsory request parameters - 'username' and 'password'
 
-**`[GET] /sign_up`**  
+5. **`[GET] /sign_up`**  
 Serves the sign-up page/ sign-up form (Upon redirection from '/')
 
 **Request**
@@ -82,8 +84,8 @@ Serves the sign-up page/ sign-up form (Upon redirection from '/')
 
 - Compulsory request parameters - None
 
-**`[POST] /sign_up/add_user`**  
-Submits form data to the backend to create a new user in the database
+6. **`[POST] /sign_up/add_user`**  
+Submits the form data submitted in the sign-up form to the backend to create a new user in the database
 
 **Request**
 - Method: `POST`
@@ -92,4 +94,5 @@ Submits form data to the backend to create a new user in the database
 - Compulsory request parameters - 'username' and 'password'
 
 To get out of the virtual environment, run this command: `deactivate`
+
 <!--Fun fact: you can force a line break by adding two spaces at the end of the line you intend to not be conjoined with the next -->
