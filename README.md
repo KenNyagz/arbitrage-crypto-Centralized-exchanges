@@ -43,7 +43,7 @@ https://romanruins.tech (Hosting not yet complete)
 
 - Compulsory request parameters - None
 
-- *This is the main API endpoint and the only endpoint that can be used outside a browser*
+*This is the main API endpoint and the only endpoint that can be used outside a browser*
 
 
 2 **`[GET] /home`**  
