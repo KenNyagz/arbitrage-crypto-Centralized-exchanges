@@ -34,7 +34,7 @@ python3 app/routes.py
 https://romanruins.tech (Hosting not yet complete)
 
 #### API endpoints:
-1. **`[GET] /arbitrage`**  
+1 **`[GET] /arbitrage`**  
  Retrieves the arbitrage opportunities between various centralized exchanges
 
 *Request*
