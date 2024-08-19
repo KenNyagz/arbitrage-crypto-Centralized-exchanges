@@ -7,6 +7,7 @@ from authentication import user
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def login():
     return render_template('login.html')
@@ -74,7 +75,7 @@ def verify_credentials():
                         margin: 0;
                         padding-top: 100px;
                     ">
-                <h1 style="text-align: center">Oops! Invalid Credentails</h1>
+                <h1 style="text-align: center"> Invalid Credentails</h1>
             </body>
         '''
     
@@ -126,10 +127,10 @@ def arbitrage():
                 <h1 style="text-align: center">Oops! Error collecting data. Please Try again</h1>
             </body>
         '''
-
+    
     #with open('ticker_arbs/2024-08-17_10.33.35', 'r') as f:  # For testing
     #    content = f.read()                                   # purposes only
-    
+
     return content
 
 
