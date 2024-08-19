@@ -24,7 +24,9 @@ def add_user():
         if user.add_user(username, password):
             return redirect(url_for('homepage'))
     except ValueError:
-        return '<body background="app/static/images/error.jpg"><h1>User already exists</h1></body>'
+        return '<body background="/static/images/error.jpg"\
+                    ><h1>User already exists</h1>\
+                </body>'
     else:
         return '<h1>Failed to create user</h1>'
 
