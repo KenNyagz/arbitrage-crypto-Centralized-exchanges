@@ -45,34 +45,51 @@ https://romanruins.tech (Hosting not yet complete)
 
 
 **`[GET] /home`**  
- Serves the home page
+ Serves the home/welcome page
 
 **Request**
 - Method: `GET`
 - Endpoint: `/home`
 
-- Compulsory parameters - None
+- Compulsory request parameters - None
 
 
-**`[POST] /`**  
- Serves the login/sign-up page
+**`[GET] /`**  
+ Serves the login page, which will redirect one to sign-up page if they do not have an account
 
 **Request**
 - Method: `GET`
 - Endpoint: `/`
 
-- Compulsory parameters - None
+- Compulsory request parameters - None
 
 
-**`[GET] /verify`**  
- Serves the home page
+**`[POST] /verify_login`**  
+ Verifies the user credentials submitted by the login form in the login page
 
 **Request**
 - Method: `POST`
 - Endpoint: `/verify_login`
 
-- Compulsory parameters - 'username' and 'password'
+- Compulsory request parameters - 'username' and 'password'
 
+**`[GET] /sign_up`**  
+Serves the sign-up page/ sign-up form (Upon redirection from '/')
+
+**Request**
+- Method: `GET`
+- Endpoint: `sign-up`
+
+- Compulsory request parameters - None
+
+**`[POST] /sign_up/add_user`**  
+Submits form data to the backend to create a new user in the database
+
+**Request**
+- Method: `POST`
+- Endpoint: `sign_up/add_user`
+
+- Compulsory request parameters - 'username' and 'password'
 
 To get out of the virtual environment, run this command: `deactivate`
 <!--Fun fact: you can force a line break by adding two spaces at the end of the line you intend to not be conjoined with the next -->
