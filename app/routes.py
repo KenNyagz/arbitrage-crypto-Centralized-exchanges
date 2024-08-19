@@ -1,14 +1,34 @@
-from flask import Flask, render_template, request, url_for, redirect #jsonify
+from flask import Flask, render_template, request, url_for, redirect, jsonify
 import os
 import sys
 import re
 from datetime import datetime, timedelta
+from authentication import user
 
 app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def login():
     return render_template('login.html')
+
+@app.route('/sign_up', strict_slashes=False)
+def sign_up():
+    return render_template('signUp.html')
+
+@app.route('/sign_up/add_user', strict_slashes=False, methods=['POST'])
+def add_user():
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    try:
+        if user.add_user(username, password):
+            #return redirect(url_for('homepage'))
+            return jsonify({"message": "User created successfully!", "redirect_url": url_for('homepage')})
+    except ValueError:
+        return 'User already exists'
+    else:
+        return 'Failed to create user'
+
 
 @app.route('/home', strict_slashes=False)
 def homepage():
@@ -19,14 +39,13 @@ def verify_credentials():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    if username == 'user' and password == 'pass':
+    if user.user_auth(username, password):
         return redirect(url_for('homepage'))
     else:
         return "Invalid Credentails", 403
     
 @app.route('/arbitrage', strict_slashes=False)
 def arbitrage():
-    '''
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
     from arbitrage import main
@@ -58,11 +77,11 @@ def arbitrage():
         file_path = os.path.join(directory, latest_file)
         with open(file_path, 'r') as file:
             content = file.read()
-    #else:
-    #    content = 'Could not find data'
-    '''
-    with open('ticker_arbs/2024-08-17_10.33.35', 'r') as f:  # For testing
-        content = f.read()                                   # purposes only
+    else:
+        content = 'Error collecting data. Please Try again'
+    
+    #with open('ticker_arbs/2024-08-17_10.33.35', 'r') as f:  # For testing
+    #    content = f.read()                                   # purposes only
     
     return content
 

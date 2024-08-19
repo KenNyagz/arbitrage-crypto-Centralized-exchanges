@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../images/btcy.jpg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+}
+
+::after{
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#signUp_form {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(202, 212, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#login_form h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#login_form .form-group {
+    margin-bottom: 15px;
+}
+
+#login_form .form-control {
+    height: 45px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#login_form button {
+    padding: 10px;
+    font-size: 18px;
+}
