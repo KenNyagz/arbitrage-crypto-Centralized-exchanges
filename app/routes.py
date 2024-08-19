@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, jsonify
+from flask import Flask, render_template, request, url_for, redirect #jsonify
 import os
 import sys
 import re
@@ -22,12 +22,11 @@ def add_user():
 
     try:
         if user.add_user(username, password):
-            #return redirect(url_for('homepage'))
-            return jsonify({"message": "User created successfully!", "redirect_url": url_for('homepage')})
+            return redirect(url_for('homepage'))
     except ValueError:
-        return 'User already exists'
+        return '<body background="app/static/images/error.jpg"><h1>User already exists</h1></body>'
     else:
-        return 'Failed to create user'
+        return '<h1>Failed to create user</h1>'
 
 
 @app.route('/home', strict_slashes=False)
@@ -42,7 +41,7 @@ def verify_credentials():
     if user.user_auth(username, password):
         return redirect(url_for('homepage'))
     else:
-        return "Invalid Credentails", 403
+        return "<h1>Invalid Credentails</h1>", 403
     
 @app.route('/arbitrage', strict_slashes=False)
 def arbitrage():
@@ -50,6 +49,8 @@ def arbitrage():
 
     from arbitrage import main
     main() # Call main to get the arbitrage opportunities
+
+    # Read the arbitrage data written to file by main()
 
     directory = 'ticker_arbs'
     # pattern = r'^(\d{4}-\d{2}-\d{2}_\d{2}\.\d{2}\.\d{2})$'
@@ -78,7 +79,7 @@ def arbitrage():
         with open(file_path, 'r') as file:
             content = file.read()
     else:
-        content = 'Error collecting data. Please Try again'
+        content = '<h1>Error collecting data. Please Try again</h1>'
     
     #with open('ticker_arbs/2024-08-17_10.33.35', 'r') as f:  # For testing
     #    content = f.read()                                   # purposes only
