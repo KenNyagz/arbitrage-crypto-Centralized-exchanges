@@ -91,7 +91,7 @@ Submits the form data submitted in the sign-up form to the backend to create a n
 - Method: `POST`
 - Endpoint: `sign_up/add_user`
 
-- Compulsory request parameters - 'username' and 'password'
+- Compulsory request parameters - 'username' and 'password'  
 
 To get out of the virtual environment, run this command: `deactivate`
 
