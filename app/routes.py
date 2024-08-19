@@ -24,12 +24,34 @@ def add_user():
         if user.add_user(username, password):
             return redirect(url_for('homepage'))
     except ValueError:
-        return '<body background="/static/images/error.jpg"\
-                    ><h1>User already exists</h1>\
-                </body>'
+        return '''
+            <body style="background: url('/static/images/error.jpg') no-repeat center center fixed;
+                        background-size: 90% 90%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0;
+                        padding-top: 100px;
+                    ">
+                <h1 style="text-align: center">Oops! User already exists</h1>
+            </body>
+        '''
+        #return '<body background="/static/images/error.jpg">\
+        #            <h1 style="text-align: center;">Oops! User already exists</h1>\
+        #        </body>'
     else:
-        return '<h1>Failed to create user</h1>'
-
+        return '''
+            <body style="background: url('/static/images/error.jpg') no-repeat center center fixed;
+                        background-size: 90% 90%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0;
+                        padding-top: 100px;
+                    ">
+                <h1 style="text-align: center">Oops! Failed to create user</h1>
+            </body>
+        '''
 
 @app.route('/home', strict_slashes=False)
 def homepage():
@@ -43,7 +65,18 @@ def verify_credentials():
     if user.user_auth(username, password):
         return redirect(url_for('homepage'))
     else:
-        return "<h1>Invalid Credentails</h1>", 403
+        return '''
+            <body style="background: url('/static/images/error.jpg') no-repeat center center fixed;
+                        background-size: 90% 90%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0;
+                        padding-top: 100px;
+                    ">
+                <h1 style="text-align: center">Oops! Invalid Credentails</h1>
+            </body>
+        '''
     
 @app.route('/arbitrage', strict_slashes=False)
 def arbitrage():
@@ -81,8 +114,19 @@ def arbitrage():
         with open(file_path, 'r') as file:
             content = file.read()
     else:
-        content = '<h1>Error collecting data. Please Try again</h1>'
-    
+        content = '''
+            <body style="background: url('/static/images/error.jpg') no-repeat center center fixed;
+                        background-size: 90% 90%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0;
+                        padding-top: 100px;
+                ">
+                <h1 style="text-align: center">Oops! Error collecting data. Please Try again</h1>
+            </body>
+        '''
+
     #with open('ticker_arbs/2024-08-17_10.33.35', 'r') as f:  # For testing
     #    content = f.read()                                   # purposes only
     

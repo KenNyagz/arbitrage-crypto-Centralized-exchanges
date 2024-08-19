@@ -50,7 +50,7 @@ class user:
         result_user_pwd = cursor.fetchone()
 
         if result_user_pwd:
-            user_in_db, hashpwd = result_user_pwd
+            _, hashpwd = result_user_pwd
             if bcrypt.checkpw(password.encode(), hashpwd.encode()):
                 print('Successful Authentication')
                 return True
