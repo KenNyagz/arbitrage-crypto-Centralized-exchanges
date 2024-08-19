@@ -34,7 +34,7 @@ python3 app/routes.py
 https://romanruins.tech (Hosting not yet complete)
 
 #### API endpoints:
-1 **`[GET] /arbitrage`**  
+1**`[GET] /arbitrage`**  
  Retrieves the arbitrage opportunities between various centralized exchanges
 
 *Request*
@@ -46,7 +46,7 @@ https://romanruins.tech (Hosting not yet complete)
 - *This is the main API endpoint and the only endpoint that can be used outside a browser*
 
 
-2. **`[GET] /home`**  
+2**`[GET] /home`**  
  Serves the home/welcome page
 
 **Request**
@@ -56,7 +56,7 @@ https://romanruins.tech (Hosting not yet complete)
 - Compulsory request parameters - None
 
 
-3. **`[GET] /`**  
+3**`[GET] /`**  
  Serves the login page, which will redirect one to the sign-up page if they do not have an account
 
 **Request**
@@ -66,7 +66,7 @@ https://romanruins.tech (Hosting not yet complete)
 - Compulsory request parameters - None
 
 
-4. **`[POST] /verify_login`**  
+4**`[POST] /verify_login`**  
  Verifies the user credentials submitted in the login form from the login page
 
 **Request**
@@ -75,7 +75,7 @@ https://romanruins.tech (Hosting not yet complete)
 
 - Compulsory request parameters - 'username' and 'password'
 
-5. **`[GET] /sign_up`**  
+5**`[GET] /sign_up`**  
 Serves the sign-up page/ sign-up form (Upon redirection from '/')
 
 **Request**
@@ -84,7 +84,7 @@ Serves the sign-up page/ sign-up form (Upon redirection from '/')
 
 - Compulsory request parameters - None
 
-6. **`[POST] /sign_up/add_user`**  
+6**`[POST] /sign_up/add_user`**  
 Submits the form data submitted in the sign-up form to the backend to create a new user in the database
 
 **Request**
