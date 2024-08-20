@@ -95,5 +95,6 @@ Submits the form data submitted in the sign-up form to the backend to create a n
 
 To get out of the virtual environment, run this command: `deactivate`
 
+*UI*  
 <code><img title="Puppet" height="500" src="/app/static/images/arbitrage_project.JPG"></code>
 <!--Fun fact: you can force a line break by adding two spaces at the end of the line you intend to not be conjoined with the next -->
