@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect #jsonify
+from flask_cors import CORS
 import os
 import sys
 import re
@@ -6,7 +7,7 @@ from datetime import datetime, timedelta
 from authentication import user
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/', strict_slashes=False)
 def login():
