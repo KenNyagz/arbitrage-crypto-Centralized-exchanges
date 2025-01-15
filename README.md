@@ -97,5 +97,5 @@ To get out of the virtual environment, run this command: `deactivate`
 
 *UI*  
 <code><img title="UI" height="500" src="/app/static/images/arbitrage_project.JPG"></code>
-<code><img title="arbi_proj" height="500" src="/app/static/images/arbitrage_project_img2.JPG"></code>
+<code><img title="arbi_proj" height="500" src="/app/static/images/arbitrage_project_img2.png"></code>
 <!--Fun fact: you can force a line break by adding two spaces at the end of the line you intend to not be conjoined with the next -->
